@@ -77,10 +77,10 @@ let orm = {
             }
 
             cb(result);
-        })
-    }
+        });
+    };
 
-}
+};
 
 
 /* function selectAll(){
