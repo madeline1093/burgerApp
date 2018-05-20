@@ -46,7 +46,7 @@ return arr.toString();
 let orm = {
 
     all: function(tableInput, cb) {
-        let queryString = "SELET * FROM " + tableInput + ";";
+        let queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
@@ -65,7 +65,7 @@ let orm = {
             }
             cb(result);
         });
-    };
+    },
 
     update: function(table, objColVal, condition, cb) {
         let queryString = "UPDATE " +table + " SET " + objToSql(objColVal) + " WHERE " + condition;
@@ -78,7 +78,7 @@ let orm = {
 
             cb(result);
         });
-    };
+    },
 
 };
 
