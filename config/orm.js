@@ -56,7 +56,7 @@ let orm = {
     },
 
     create: function(table, cols, vals, cb){
-        let queryString = "INSERT INTO" + table + " (" + cols.toString() + ") VALUES (" + printQuestionMarks(vals.length) + ") ";
+        let queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (" + printQuestionMarks(vals.length) + ") ";
         console.log(queryString);
 
         connection.query(queryString, vals, function(err, result) {
@@ -74,6 +74,7 @@ let orm = {
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
+                console.log('put error');
             }
 
             cb(result);
