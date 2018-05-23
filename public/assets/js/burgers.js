@@ -6,7 +6,25 @@ $(document).ready(function(){
     });
     
     $(".change-eaten").on("click", function(event){
-        burgerEaten();
+    
+            console.log('got here??');
+            console.log($(this));
+            let id = $(this).data("id");
+            let newEaten = $(this).data("neweaten");
+        
+            let newEatenState = {
+                isEaten: newEaten
+            };
+            $.ajax("/api/burgers/" + id, {
+                type: "PUT",
+                data: newEatenState
+            }).then(
+                function() {
+                    conole.log("changed burger to", newEaten);
+                    location.reload();
+                }
+            )
+        
     })
     
     //event handlers
@@ -28,23 +46,6 @@ $(document).ready(function(){
         });
     };
     
-    function burgerEaten() {
-        console.log('got here??');
-        let id = $(this).data("id");
-        let newEaten = $(this).data("newEaten");
-    
-        let newEatenState = {
-            isEaten: newEaten
-        };
-        $.ajax("/api/cats/" + id, {
-            type: "PUT",
-            data: newEatenState
-        }).then(
-            function() {
-                conole.log("changed eaten to", newEaten);
-                location.reload();
-            }
-        )
-    };
+
 
 });
