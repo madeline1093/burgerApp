@@ -10,7 +10,8 @@ $(document).ready(function(){
             console.log('got here??');
             console.log($(this));
             let id = $(this).data("id");
-            let newEaten = $(this).data("neweaten");
+            let newEaten = $(event.target).data("neweaten");
+            console.log(newEaten);
         
             let newEatenState = {
                 isEaten: newEaten
@@ -19,8 +20,9 @@ $(document).ready(function(){
                 type: "PUT",
                 data: newEatenState
             }).then(
-                function() {
-                    conole.log("changed burger to", newEaten);
+                function(data) {
+                    console.log(data);
+                    //debugger;
                     location.reload();
                 }
             )

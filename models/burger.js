@@ -20,7 +20,7 @@ let burger = {
       update: function(objColVals, condition, cb){
         orm.update("burgers", objColVals, condition, function(res){
           cb(res);
-        })
+        });
       }
 /*     all: function(cb) {
         orm.all("cats", function(res) {
